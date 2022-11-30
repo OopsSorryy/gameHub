@@ -46,6 +46,10 @@ public class GeneralExceptionHandler extends ResponseEntityExceptionHandler {
     public ResponseEntity<?> customerIdDoesNotExistExceptionHandler(CustomerIdDoesNotExistException exception)  {
         return new ResponseEntity<>(exception.getMessage(), HttpStatus.NOT_FOUND);
     }
+    @ExceptionHandler(CustomerNotFoundException.class)
+    public ResponseEntity<?> customerNotFoundExceptionHandler(CustomerNotFoundException exception)  {
+        return new ResponseEntity<>(exception.getMessage(), HttpStatus.NOT_FOUND);
+    }
     @ExceptionHandler(GameIdDoesNotExistException.class)
     public ResponseEntity<?> gameIdDoesNotExistExceptionHandler(GameIdDoesNotExistException exception)  {
         return new ResponseEntity<>(exception.getMessage(), HttpStatus.NOT_FOUND);
@@ -66,9 +70,18 @@ public class GeneralExceptionHandler extends ResponseEntityExceptionHandler {
     public ResponseEntity<?> gameAlreadyExistsInBasketExceptionHandler(GameAlreadyExistsInBasketException exception)  {
         return new ResponseEntity<>(exception.getMessage(), HttpStatus.CONFLICT);
     }
+    @ExceptionHandler(GameAlreadyExistInLibrary.class)
+    public ResponseEntity<?> gameAlreadyExistInLibraryExceptionHandler(GameAlreadyExistInLibrary exception)  {
+        return new ResponseEntity<>(exception.getMessage(), HttpStatus.CONFLICT);
+    }
     @ExceptionHandler(MaxImageException.class)
     public ResponseEntity<?> maxImageExceptionHandler(MaxImageException exception)  {
         return new ResponseEntity<>(exception.getMessage(), HttpStatus.BAD_REQUEST);
     }
+    @ExceptionHandler(TokenNotValidException.class)
+    public ResponseEntity<?>tokenNotValidExceptionHandler(TokenNotValidException exception)  {
+        return new ResponseEntity<>(exception.getMessage(), HttpStatus.BAD_REQUEST);
+    }
+
 
 }

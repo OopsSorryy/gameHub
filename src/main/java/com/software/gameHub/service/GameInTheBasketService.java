@@ -1,5 +1,7 @@
 package com.software.gameHub.service;
 
+import com.software.gameHub.core.constant.Constant;
+import com.software.gameHub.core.exception.GameAlreadyExistsInBasketException;
 import com.software.gameHub.entity.Basket;
 import com.software.gameHub.entity.Game;
 import com.software.gameHub.entity.GameInTheBasket;
@@ -38,12 +40,23 @@ public class GameInTheBasketService {
     public void addGameToBasket(AddGameToBasketRequest addGameToBasketRequest){
         Basket basket = basketService.getBasketByCustomerId(addGameToBasketRequest.getCustomerId());
         Game game = gameService.findById(addGameToBasketRequest.getGameId());
-
+        gameInTheBasketControl(basket.getBasketId(),game.getGameId());
         GameInTheBasket gameInTheBasket = new GameInTheBasket(game,basket);
+        game.setThereInBasket(true);
 
         gameInTheBasketDao.save(gameInTheBasket);
 
     }
+
+    private void gameInTheBasketControl(int basketId, int gameId) {
+        List<GameInTheBasket> findByBasket_BasketIdAndGame_GameId =
+         gameInTheBasketDao.findByBasket_BasketIdAndGame_GameId(basketId,gameId);
+         if(findByBasket_BasketIdAndGame_GameId.size()>0 ){
+            throw new GameAlreadyExistsInBasketException(Constant.GAME_ALREADY_EXISTS_IN_BASKET);
+         }
+        
+    }
+
     //bır oyunu ıkıkez sepete ekleyemez
     //verdıgın degerlerı kontrol et
     public void deleteGameFromBasket(DeleteGameFromBasketRequest deleteGameFromBasketRequest){

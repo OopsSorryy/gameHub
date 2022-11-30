@@ -24,6 +24,9 @@ public class Customer {
 
     private String passwordMatch;
 
+    @Enumerated(EnumType.STRING)
+    private Role role;
+
     @OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     @JoinColumn
     private Library library;
@@ -39,8 +42,8 @@ public class Customer {
     @OneToMany(fetch = FetchType.LAZY ,cascade = CascadeType.MERGE,mappedBy = "customer")
     private List<Comment> comments;
 
-    @OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL,mappedBy = "customer")
-    private Buy buy;
+    @OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL,mappedBy = "customer")
+    private List<Buy> buy;
 
     public Customer
             (
@@ -62,4 +65,24 @@ public class Customer {
         this.wallet = wallet;
         this.basket = basket;
     }
+    public Customer(String mail,
+                    String name,
+                    String surname,
+                    String password,
+                    String passwordMatch,
+                    Library library,
+                    Wallet wallet,
+                    Basket basket,
+                    Role role) {
+        this.mail = mail;
+        this.name = name;
+        this.surname = surname;
+        this.password = password;
+        this.passwordMatch = passwordMatch;
+        this.library = library;
+        this.wallet = wallet;
+        this.basket = basket;
+        this.role=role;
+    }
+
 }

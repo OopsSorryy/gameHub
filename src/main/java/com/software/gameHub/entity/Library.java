@@ -2,7 +2,11 @@ package com.software.gameHub.entity;
 
 import lombok.Data;
 
+import java.util.List;
+
 import javax.persistence.*;
+
+
 
 @Data
 @Entity
@@ -14,7 +18,7 @@ public class Library {
     @OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL,mappedBy = "library")
     private Customer customer;
 
-    @OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL,mappedBy = "library")
-    private Buy buy;
+    @OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL,mappedBy = "library")
+    private List<Buy> buy;
 
 }

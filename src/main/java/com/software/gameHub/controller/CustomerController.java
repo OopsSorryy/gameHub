@@ -12,6 +12,7 @@ import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/customer")
+@CrossOrigin(origins = "*")
 public class CustomerController {
 
     private final CustomerService customerService;

@@ -18,6 +18,12 @@ public class GameDto {
 
     private double price;
 
+    private String description;
+
+    private boolean isThereInLibrary;
+
+    private boolean isThereInBasket;
+
     private List<CategoryDto> categories;
 
     private List<ImageDto> images;

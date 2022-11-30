@@ -5,6 +5,7 @@ import lombok.Data;
 @Data
 public class AddBalanceRequest {
 
+
     private int walletId;
 
     private double balance;

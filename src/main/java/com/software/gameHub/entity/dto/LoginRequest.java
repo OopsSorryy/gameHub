@@ -1,18 +1,18 @@
 package com.software.gameHub.entity.dto;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
+import javax.validation.constraints.NotBlank;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class LibraryDto {
+public class LoginRequest {
 
-    private int libraryId;
-
-    private List<BuyDto> buy;
+    @NotBlank
+    private String email;
+    @NotBlank
+    private String password;
 }

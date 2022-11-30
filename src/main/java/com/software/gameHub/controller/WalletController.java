@@ -12,6 +12,7 @@ import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/wallet")
+@CrossOrigin(origins = "*")
 public class WalletController {
 
     private final WalletService walletService;
@@ -23,5 +24,9 @@ public class WalletController {
     @PutMapping
     public ResponseEntity<WalletDto> addBalance(@Valid @RequestBody AddBalanceRequest request){
        return new ResponseEntity<>(walletService.addBalance(request), HttpStatus.OK);
+    }
+    @GetMapping("/{walletId}")
+    public ResponseEntity<WalletDto> getById(@Valid @PathVariable("walletId") int walletId ){
+        return new ResponseEntity<>(walletService.getById(walletId),HttpStatus.OK);
     }
 }

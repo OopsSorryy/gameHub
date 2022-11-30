@@ -26,6 +26,9 @@ public class GameConverter {
                         from.getGameId(),
                         from.getName(),
                         from.getPrice(),
+                        from.getDescription(),
+                        from.isThereInLibrary(),
+                        from.isThereInBasket(),
                         categoryConverter.convert(from.getCategories()),
                         imageConverter.convert(from.getImages()),
                         commentConverter.convert(from.getComments())
@@ -36,6 +39,9 @@ public class GameConverter {
         return fromList.stream().map(from-> new GameDto( from.getGameId(),
                 from.getName(),
                 from.getPrice(),
+                from.getDescription(),
+                from.isThereInLibrary(),
+                from.isThereInBasket(),
                 categoryConverter.convert(from.getCategories()),
                 imageConverter.convert(from.getImages()),
                 commentConverter.convert(from.getComments()))).collect(Collectors.toList());
