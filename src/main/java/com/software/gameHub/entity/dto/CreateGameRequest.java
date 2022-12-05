@@ -22,5 +22,8 @@ public class CreateGameRequest {
     private String description;
 
     @NotBlank
+    private String url;
+
+    @NotBlank
     private List<Integer> categoryIds;
 }

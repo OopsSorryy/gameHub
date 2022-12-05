@@ -6,7 +6,7 @@ import com.software.gameHub.entity.Basket;
 import com.software.gameHub.entity.Game;
 import com.software.gameHub.entity.GameInTheBasket;
 import com.software.gameHub.entity.dto.AddGameToBasketRequest;
-import com.software.gameHub.entity.dto.BasketGameDto;
+import com.software.gameHub.entity.dto.GameDtoInBasket;
 import com.software.gameHub.entity.dto.DeleteGameFromBasketRequest;
 import com.software.gameHub.entity.dto.converter.BasketGameDtoConverter;
 import com.software.gameHub.repository.GameInTheBasketDao;
@@ -31,7 +31,7 @@ public class GameInTheBasketService {
         this.gameService = gameService;
     }
 
-    public List<BasketGameDto> getAll(int basketId){
+    public List<GameDtoInBasket> getAll(int basketId){
         List<GameInTheBasket> byBasket_basketIdIn = gameInTheBasketDao.findByBasket_BasketId(basketId);
         List<Game> games = byBasket_basketIdIn.stream().map(GameInTheBasket::getGame).toList();
         return basketGameDtoConverter.converter(games);

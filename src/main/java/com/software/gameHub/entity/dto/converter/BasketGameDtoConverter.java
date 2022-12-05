@@ -1,8 +1,7 @@
 package com.software.gameHub.entity.dto.converter;
 
 import com.software.gameHub.entity.Game;
-import com.software.gameHub.entity.dto.BasketGameDto;
-import com.software.gameHub.entity.dto.GameDto;
+import com.software.gameHub.entity.dto.GameDtoInBasket;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -19,11 +18,11 @@ public class BasketGameDtoConverter {
         this.imageConverter = imageConverter;
     }
 
-    public List<BasketGameDto> converter(List<Game> fromList){
+    public List<GameDtoInBasket> converter(List<Game> fromList){
         if (fromList == null){
             return null;
         }
-        return fromList.stream().map(from-> new BasketGameDto(
+        return fromList.stream().map(from-> new GameDtoInBasket(
                 from.getGameId(),
                 from.getName(),
                 from.getPrice(),
@@ -31,8 +30,8 @@ public class BasketGameDtoConverter {
                 imageConverter.convert(from.getImages()))).collect(Collectors.toList());
 
     }
-    public BasketGameDto converter(Game from){
-        return new BasketGameDto
+    public GameDtoInBasket converter(Game from){
+        return new GameDtoInBasket
                 (
                         from.getGameId(),
                         from.getName(),

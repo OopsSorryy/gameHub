@@ -20,4 +20,6 @@ public interface GameDao extends JpaRepository<Game,Integer> {
     List<Game> findByOrderByPrice();
 
     List<Game> findByOrderByPriceDesc();
+
+    List<Game> findByGameInTheBaskets_GameInTheBasketIdIn(List<Integer> id);
 }

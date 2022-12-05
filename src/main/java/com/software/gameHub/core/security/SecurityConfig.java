@@ -53,7 +53,7 @@ public class SecurityConfig {
     public WebSecurityCustomizer webSecurityCustomizer() {
         return (web) -> web.ignoring().antMatchers( "/login/**","/customer/**","/gameInTheBasket/**","/game/**","/category/**","/basket/**",
         "/comment/**",
-        "/image/**","/buy/**");
+        "/image/**","/buy/**").antMatchers("/swagger-ui/**", "/v3/api-docs/**");
     }
 
     @Bean

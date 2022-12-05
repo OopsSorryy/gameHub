@@ -2,7 +2,7 @@ package com.software.gameHub.controller;
 
 import com.software.gameHub.entity.GameInTheBasket;
 import com.software.gameHub.entity.dto.AddGameToBasketRequest;
-import com.software.gameHub.entity.dto.BasketGameDto;
+import com.software.gameHub.entity.dto.GameDtoInBasket;
 import com.software.gameHub.entity.dto.DeleteGameFromBasketRequest;
 import com.software.gameHub.repository.GameInTheBasketDao;
 import com.software.gameHub.service.GameInTheBasketService;
@@ -26,7 +26,7 @@ public class GameInTheBasketController {
 
    
     @GetMapping("/{basketId}")
-    public ResponseEntity<List<BasketGameDto>> getAll(@PathVariable int basketId){
+    public ResponseEntity<List<GameDtoInBasket>> getAll(@PathVariable int basketId){
         return new ResponseEntity<>(gameInTheBasketService.getAll(basketId), HttpStatus.OK);
     }
 

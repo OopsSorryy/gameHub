@@ -13,5 +13,5 @@ public class BuyDto {
 
     private int buyId;
 
-    private BasketGameDto game;
+    private GameDtoInBasket game;
 }

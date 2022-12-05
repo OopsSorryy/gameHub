@@ -40,6 +40,7 @@ public class GameService {
                         request.getName(),
                         request.getPrice(),
                         request.getDescription(),
+                        request.getUrl(),
                         categories
                 );
 
@@ -50,8 +51,13 @@ public class GameService {
         gameDao.deleteById(findById(gameId).getGameId());
     }
 
-    protected Game findById(int gameId){
+    protected  Game findById(int gameId){
+
         return gameDao.findById(gameId).orElseThrow(()-> new GameIdDoesNotExistException(Constant.GAME_ID_DOES_NOT_EXIST));
+    }
+
+    protected List<Game> findByGameBasketIdIn(List<Integer> id){
+        return gameDao.findByGameInTheBaskets_GameInTheBasketIdIn(id);
     }
 
     public GameDto getById(int gameId){

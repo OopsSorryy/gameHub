@@ -18,5 +18,6 @@ public class Constant {
     public static final String LIBRARY_DOESNT_EXIST = "Library Doesn't Exist";
     public static final String GAME_ALREADY_EXISTS_IN_LIBRARY = "Game Already Exist in Library";
     public static final String EMAIL_ALREADY_USED = "Email Already Used.";
+    public static final String YOU_DO_NOT_ENOUGH_MANY = "You Don't Enough Money.";
 }
 
