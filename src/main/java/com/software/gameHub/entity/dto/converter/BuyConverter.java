@@ -28,7 +28,10 @@ public class BuyConverter {
     }
 
     public List<BuyDto> convert(List<Buy> fromList){
-      
+
+        if(fromList==null){
+            return null;
+        }
         return fromList.stream().map(buy -> new BuyDto
         (
             buy.getBuyId(),

@@ -21,6 +21,11 @@ public class LibraryConverter {
     }
 
     public List<LibraryDto> convert(List<Library> fromList){
+
+        if(fromList==null){
+            return null;
+        }
+
         return fromList.stream().map(library -> new LibraryDto
                 (
                         library.getLibraryId(),
