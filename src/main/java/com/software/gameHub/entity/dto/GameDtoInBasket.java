@@ -15,6 +15,8 @@ public class GameDtoInBasket {
 
     private double price;
 
+    private String downloadURL;
+
     private List<CategoryDto> categories;
 
     private List<ImageDto> images;

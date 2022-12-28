@@ -26,6 +26,7 @@ public class BasketGameDtoConverter {
                 from.getGameId(),
                 from.getName(),
                 from.getPrice(),
+                from.getDownloadURL(),
                 categoryConverter.convert(from.getCategories()),
                 imageConverter.convert(from.getImages()))).collect(Collectors.toList());
 
@@ -36,6 +37,7 @@ public class BasketGameDtoConverter {
                         from.getGameId(),
                         from.getName(),
                         from.getPrice(),
+                        from.getDownloadURL(),
                         categoryConverter.convert(from.getCategories()),
                         imageConverter.convert(from.getImages())
 
