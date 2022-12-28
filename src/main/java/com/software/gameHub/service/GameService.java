@@ -41,6 +41,7 @@ public class GameService {
                         request.getPrice(),
                         request.getDescription(),
                         request.getUrl(),
+                        request.getDownloadURL(),
                         categories
                 );
 

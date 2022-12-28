@@ -21,6 +21,8 @@ public class Game {
 
     private String description;
 
+    private String downloadURL;
+
     private boolean isThereInLibrary = false;
 
     private boolean isThereInBasket = false;
@@ -43,10 +45,11 @@ public class Game {
     @OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.MERGE,mappedBy = "game")
     private List<GameInTheBasket> gameInTheBaskets;
 
-    public Game(String name, double price, String description,String url, List<Category> categories) {
+    public Game(String name, double price, String description,String downloadURL,String url, List<Category> categories) {
         this.name = name;
         this.price = price;
         this.description = description;
+        this.downloadURL = downloadURL;
         this.url=url;
         this.categories = categories;
     }

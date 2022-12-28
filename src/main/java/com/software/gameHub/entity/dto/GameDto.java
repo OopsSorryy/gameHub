@@ -22,6 +22,8 @@ public class GameDto {
 
     private String url;
 
+    private String downloadURL;
+
     private boolean isThereInLibrary;
 
     private boolean isThereInBasket;

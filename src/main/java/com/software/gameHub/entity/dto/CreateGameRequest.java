@@ -25,5 +25,8 @@ public class CreateGameRequest {
     private String url;
 
     @NotBlank
+    private String downloadURL;
+
+    @NotBlank
     private List<Integer> categoryIds;
 }
